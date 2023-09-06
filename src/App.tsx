@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BankAccount } from './BankAccount';
+import { PageLayout } from './components/Layout/PageLayout';
+import { Lottery } from './Lottery';
+import React, { useState } from 'react';
+import { Ticket } from './Ticket';
+import { Game } from './views/Game';
+//import { createAppTheme } from 'theme';
+//import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
-function App() {
+export const App: React.FC = () => {
+  const [ticket, setTicket] = useState<Ticket>(Ticket.generateRandomTicket());
+  const [bankAccount, setBankAccount] = useState<BankAccount>(new BankAccount());
+  const [lottery, setLottery] = useState<Lottery>(new Lottery());
+
+  //const theme = createTheme(createAppTheme('light'));
+
+  const resetSimulator = () => {
+    setTicket(Ticket.generateRandomTicket());
+    setBankAccount(new BankAccount());
+    setLottery(new Lottery());
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   
+      <PageLayout>
+        <Game ticket={ticket} bankAccount={bankAccount} lottery={lottery} reset={resetSimulator} setTicket={setTicket}/>
+      </PageLayout>
   );
-}
-
-export default App;
+};
