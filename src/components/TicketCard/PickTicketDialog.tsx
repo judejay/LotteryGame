@@ -32,7 +32,7 @@ export const PickTicketDialog: React.FC<PickTicketDialogProps> = (props: PickTic
     handleOnClose();
   };
 
-  const allPossibleNumbers = Array.from({ length: 49 }, (_, i) => i + 1);
+  const allPossibleNumbers = Array.from({ length: 59 }, (_, i) => i + 1);
   const canSave = numbers.length === 6;
 
   return (

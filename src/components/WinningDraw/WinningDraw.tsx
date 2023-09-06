@@ -24,14 +24,10 @@ export const WinningDraw: React.FC<WinningDrawProps> = (props: WinningDrawProps)
                         <WinningDrawNumber key={number} number={number} isWinner={props.ticket.numbers.includes(number)} />
                     ))}
                 </Stack>
-                <Stack direction="row" gap={2} alignItems="center">
-                    <Typography variant="body1">Bonus</Typography>
-                    <WinningDrawNumber number={props.draw.bonus} isWinner={props.ticket.numbers.includes(props.draw.bonus)}/>
-                </Stack>
             </Stack>
             )
           : (
-            <Typography variant='body1'>Start game to draw</Typography>
+            <Typography variant='body1'>Play game to draw</Typography>
             )}
         </CardContent>
     </Card>
