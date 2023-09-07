@@ -15,13 +15,11 @@ export interface GameProps {
 }
 
 export const Game: React.FC<GameProps> = (props: GameProps) => {
-  const [tickets, setTickets] = useState(0);
   const [winnings, setWinnings] = useState(0);
   
 
   const resetGame = () => {
     props.reset();
-    setTickets(0);
   };
 
   const handleLuckyDip = (ticket: Ticket) => {
