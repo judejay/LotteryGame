@@ -38,8 +38,12 @@ export const WinningDraw: React.FC<WinningDrawProps> = (props: WinningDrawProps)
               <Stack sx={{ marginTop: '20px' }} alignItems="center" direction="column" gap={2} flexWrap="wrap">
                 <><Divider light /><Alert severity="success">Won: £{props.winnings}</Alert></>
                 </Stack>
-            ):
-            null
+            ):(
+              <Stack sx={{ marginTop: '20px' }} alignItems="center" direction="column" gap={2} flexWrap="wrap">
+                <><Divider light /><Alert severity="info">No Winnings</Alert></>
+                </Stack>
+            )
+            
 
             }
         </CardContent>
