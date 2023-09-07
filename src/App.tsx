@@ -10,7 +10,7 @@ export const App: React.FC = () => {
   const [lottery, setLottery] = useState<Lottery>(new Lottery());
 
 
-  const resetSimulator = () => {
+  const resetGame = () => {
     setTicket(Ticket.generateRandomTicket());
     setLottery(new Lottery());
   };
@@ -18,7 +18,7 @@ export const App: React.FC = () => {
   return (
    
       <PageLayout>
-        <Game ticket={ticket}  lottery={lottery} reset={resetSimulator} setTicket={setTicket}/>
+        <Game ticket={ticket}  lottery={lottery} reset={resetGame} setTicket={setTicket}/>
       </PageLayout>
   );
 };

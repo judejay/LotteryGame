@@ -6,6 +6,7 @@ import { Lottery } from '../Lottery';
 import { WinningDraw } from '../components/WinningDraw';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import { LotteryDraw } from '../LotteryDraw';
 
 export interface GameProps {
     ticket: Ticket;
@@ -16,14 +17,15 @@ export interface GameProps {
 
 export const Game: React.FC<GameProps> = (props: GameProps) => {
   const [tickets, setTickets] = useState(0);
+  const [winnings, setWinnings] = useState(0);
+  //const [result, setResult] = useState<LotteryDraw>(null)
+  
+  // useEffect(() => {
+     
 
-  useEffect(() => {
-    if (tickets > 0) {
-      props.lottery.draw();
-
-      const winnings = props.lottery.validateTicket(props.ticket);
-    }
-  }, [props.lottery, props.ticket, tickets]);
+  //     setResult( props.lottery.result);
+     
+  // }, [props.lottery.result]);
 
   const resetGame = () => {
     props.reset();
@@ -35,6 +37,18 @@ export const Game: React.FC<GameProps> = (props: GameProps) => {
     props.setTicket(ticket);
   };
 
+  function playGame(ticket: Ticket) {
+    props.lottery.draw();
+
+    setWinnings(  props.lottery.validateTicket(props.ticket));
+    console.log(winnings )
+  }
+  
+
+  const handlePlayGame = ( ): any => {
+    playGame(props.ticket);
+  }
+
 
   return (
     <Grid container direction="column">
@@ -42,7 +56,7 @@ export const Game: React.FC<GameProps> = (props: GameProps) => {
         <Stack direction="row" marginY={2} justifyContent="space-between">    
           <Button color="info" variant="contained" onClick={resetGame} endIcon={<RestartAltIcon />}>Pick Numbers</Button>
           <Button color="secondary" variant="contained" onClick={resetGame} endIcon={<RestartAltIcon />}>Lucky Dip</Button>
-          <Button color="success" variant="contained" onClick={resetGame} endIcon={<PlayArrowIcon />}>Play</Button>
+          <Button color="success" variant="contained" onClick={handlePlayGame} endIcon={<PlayArrowIcon />}>Play</Button>
           <Button color="error" variant="contained" onClick={resetGame} endIcon={<RestartAltIcon />}>Reset</Button>
         </Stack>
         <TicketCard ticket={props.ticket} onTicketChange={handleLuckyDip}/>
@@ -50,10 +64,11 @@ export const Game: React.FC<GameProps> = (props: GameProps) => {
       <Grid container item xs lg={9} rowGap={2} padding={2}>
         <Grid container direction="row" gap={2}>
           <Grid direction="column" justifyContent="space-between" container item xs gap={2}>
-              <WinningDraw draw={props.lottery.result} ticket={props.ticket} />
+              <WinningDraw draw={props.lottery.result} ticket={props.ticket} winnings={winnings} />
           </Grid>       
         </Grid>       
       </Grid>
     </Grid>
   );
 };
+
