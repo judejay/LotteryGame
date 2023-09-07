@@ -9,19 +9,22 @@ export class Lottery {
     this.result = null;
   }
 
-  draw () {
+  draw (): Boolean {
     const numbers = Lottery.getRandomNumbers(6);
+    console.log("this.result", this.result)
+
     this.result = new LotteryDraw([numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]]);
+    return true
   }
 
   validateTicket (ticket: Ticket) : number {
     let prize = 0;
 
     if (this.result) {
-      const result = intersection(ticket.numbers, this.result.numbers);
+      const wins = intersection(ticket.numbers, this.result.numbers);
 
       let prizePool = -1;
-      switch (result.length) {
+      switch (wins.length) {
       
         
         case 3:

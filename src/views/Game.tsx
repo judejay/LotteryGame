@@ -8,6 +8,8 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 export interface GameProps {
+    setPlayed: Dispatch<SetStateAction<boolean>>;
+    played: boolean;
     ticket: Ticket;
     lottery: Lottery;
     reset: () => void;
@@ -15,8 +17,8 @@ export interface GameProps {
 }
 
 export const Game: React.FC<GameProps> = (props: GameProps) => {
+  console.log("props.lottery", props.lottery)
   const [winnings, setWinnings] = useState(0);
-  
 
   const resetGame = () => {
     props.reset();
@@ -28,10 +30,13 @@ export const Game: React.FC<GameProps> = (props: GameProps) => {
   };
 
   function playGame(ticket: Ticket) {
+
     props.lottery.draw();
 
     setWinnings(  props.lottery.validateTicket(props.ticket));
-    console.log(winnings )
+    console.log(winnings );
+    props.setPlayed(true);
+
   }
   
 
@@ -53,7 +58,7 @@ export const Game: React.FC<GameProps> = (props: GameProps) => {
       <Grid container item xs lg={9} rowGap={2} padding={2}>
         <Grid container direction="row" gap={2}>
           <Grid direction="column" justifyContent="space-between" container item xs gap={2}>
-              <WinningDraw draw={props.lottery.result} ticket={props.ticket} winnings={winnings} />
+              <WinningDraw played={props.played} draw={props.lottery.result} ticket={props.ticket} winnings={winnings} />
           </Grid>       
         </Grid>       
       </Grid>
