@@ -4,19 +4,9 @@ import intersection from 'lodash/intersection';
 import { LotteryDraw } from './LotteryDraw';
 
 export class Lottery {
-  //readonly categories = ['2/6', '2/6+B', '3/6', '4/6', '5/6', '5/6+B', '6/6'];
-  //readonly payouts = [3, 5, 10, 78, 2199, 110841, 8811827];
- // readonly odds = [8.3, 81.2, 56.7, 1033, 55492, 2330636, 13983816];
- // readonly ticketPrice = 3;
-
-  totalWinnings: number;
   result: LotteryDraw | null;
-  //wins: number[];
-
   constructor () {
-    //this.wins = [0, 0, 0, 0, 0, 0];
     this.result = null;
-    this.totalWinnings = 0;
   }
 
   draw () {
@@ -54,8 +44,6 @@ export class Lottery {
 
       if (prizePool > 0) {
         prize = prizePool;
-       // this.wins[prizePool]++;
-        this.totalWinnings += prize;
       }
     }
 

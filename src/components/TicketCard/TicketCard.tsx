@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, CardContent, CardHeader, Divider, IconButton, Stack } from '@mui/material';
+import { Button, Card, CardContent, CardHeader, Divider, Stack } from '@mui/material';
 import { Ticket } from '../../Ticket';
 import { TicketCardNumber } from './TicketCardNumber';
 import EditIcon from '@mui/icons-material/Edit';

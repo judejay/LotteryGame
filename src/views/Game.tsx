@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { Button, Grid, Stack } from '@mui/material';
 import { Ticket } from '../Ticket';
 import { TicketCard } from '../components/TicketCard';
@@ -6,7 +6,6 @@ import { Lottery } from '../Lottery';
 import { WinningDraw } from '../components/WinningDraw';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import { LotteryDraw } from '../LotteryDraw';
 
 export interface GameProps {
     ticket: Ticket;
@@ -18,14 +17,7 @@ export interface GameProps {
 export const Game: React.FC<GameProps> = (props: GameProps) => {
   const [tickets, setTickets] = useState(0);
   const [winnings, setWinnings] = useState(0);
-  const [result, setResult] = useState<Lottery>()
   
-  // useEffect(() => {
-     
-
-  //     setResult( props.lottery.result);
-     
-  // }, [props.lottery.result]);
 
   const resetGame = () => {
     props.reset();
