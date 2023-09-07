@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, Divider, IconButton, Stack } from '@mui/material';
+import { Button, Card, CardContent, CardHeader, Divider, IconButton, Stack } from '@mui/material';
 import { Ticket } from '../../Ticket';
 import { TicketCardNumber } from './TicketCardNumber';
 import EditIcon from '@mui/icons-material/Edit';
@@ -31,9 +31,8 @@ const [openDialog, setOpenDialog] = React.useState(false);
             <CardHeader
             title="Your numbers"
             action={
-                <IconButton color="primary" onClick={handleClickOpen}>
-                    <EditIcon />
-                </IconButton>
+              
+          <Button color="secondary" variant="contained" onClick={handleClickOpen} endIcon={<EditIcon />}>Pick Numbers</Button>
             }
             />
             <Divider />
