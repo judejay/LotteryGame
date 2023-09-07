@@ -30,11 +30,8 @@ export const Game: React.FC<GameProps> = (props: GameProps) => {
   };
 
   function playGame(ticket: Ticket) {
-
     props.lottery.draw();
-
     setWinnings(  props.lottery.validateTicket(props.ticket));
-    console.log(winnings );
     props.setPlayed(true);
 
   }

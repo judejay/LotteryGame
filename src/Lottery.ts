@@ -11,43 +11,33 @@ export class Lottery {
 
   draw (): Boolean {
     const numbers = Lottery.getRandomNumbers(6);
-    console.log("this.result", this.result)
-
     this.result = new LotteryDraw([numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]]);
     return true
   }
 
   validateTicket (ticket: Ticket) : number {
     let prize = 0;
-
     if (this.result) {
       const wins = intersection(ticket.numbers, this.result.numbers);
-
-      let prizePool = -1;
-      switch (wins.length) {
-      
-        
+      switch (wins.length) {              
         case 3:
-          prizePool = 50;
+          prize = 50;
           break;
         case 4:
-          prizePool = 100;
+          prize = 100;
           break;
         case 5:
-          prizePool =  200;
+          prize =  200;
           break;
         case 6:
-          prizePool = 500;
+          prize = 500;
           break;
           default :
-          prizePool = 0;
+          prize = 0;
 
 
       }
-
-      if (prizePool > 0) {
-        prize = prizePool;
-      }
+      
     }
 
     return prize;
