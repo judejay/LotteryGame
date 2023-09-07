@@ -28,7 +28,6 @@ export const WinningDraw: React.FC<WinningDrawProps> = (props: WinningDrawProps)
                   <WinningDrawNumber key={number} number={number} isWinner={props.ticket.numbers.includes(number)} />
                 ))}
               </Stack>
-
             </Stack>
            
               </>
@@ -36,18 +35,21 @@ export const WinningDraw: React.FC<WinningDrawProps> = (props: WinningDrawProps)
           : (
             <Typography variant='body1'>Play game to draw</Typography>
             )}
-            {props.played ? (
-              <Stack sx={{ marginTop: '20px' }} alignItems="center" direction="column" gap={2} flexWrap="wrap">
+            {props.played ? ( props.winnings ? (
+                 <Stack sx={{ marginTop: '20px' }} alignItems="center" direction="column" gap={2} flexWrap="wrap">
                 <><Divider light /><Alert severity="success">Won: £{props.winnings}</Alert></>
                 </Stack>
-            ):(
+            ):
+
+           
+            (
               <Stack sx={{ marginTop: '20px' }} alignItems="center" direction="column" gap={2} flexWrap="wrap">
                 <><Divider light /><Alert severity="info">No Winnings</Alert></>
                 </Stack>
-            )
+            )): null }
             
 
-            }
+            
         </CardContent>
     </Card>
   );
