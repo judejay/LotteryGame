@@ -34,12 +34,8 @@ export class Lottery {
           break;
           default :
           prize = 0;
-
-
-      }
-      
+      }      
     }
-
     return prize;
   }
 
