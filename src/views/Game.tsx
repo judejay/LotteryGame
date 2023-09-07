@@ -18,7 +18,7 @@ export interface GameProps {
 export const Game: React.FC<GameProps> = (props: GameProps) => {
   const [tickets, setTickets] = useState(0);
   const [winnings, setWinnings] = useState(0);
-  //const [result, setResult] = useState<LotteryDraw>(null)
+  const [result, setResult] = useState<Lottery>()
   
   // useEffect(() => {
      

@@ -12,6 +12,7 @@ export interface WinningDrawProps {
 }
 
 export const WinningDraw: React.FC<WinningDrawProps> = (props: WinningDrawProps) => {
+  
   return (
     <Card>
         <CardHeader title="Winning draw"></CardHeader>
@@ -19,7 +20,7 @@ export const WinningDraw: React.FC<WinningDrawProps> = (props: WinningDrawProps)
         <CardContent>
         {props.draw
           ? (
-            <><Stack direction="row" gap={2} flexWrap="wrap">
+            <><Stack direction="column" alignItems="center" gap={2} flexWrap="wrap">
               <Stack direction="row" gap={2} alignItems="center">
                 {sortBy(props.draw.numbers).map((number) => (
                   <WinningDrawNumber key={number} number={number} isWinner={props.ticket.numbers.includes(number)} />
@@ -33,8 +34,8 @@ export const WinningDraw: React.FC<WinningDrawProps> = (props: WinningDrawProps)
           : (
             <Typography variant='body1'>Play game to draw</Typography>
             )}
-            {props.winnings ? (
-              <Stack sx={{ marginTop: '20px' }} direction="row" gap={2} flexWrap="wrap">
+            {props.winnings > 0 ? (
+              <Stack sx={{ marginTop: '20px' }} alignItems="center" direction="column" gap={2} flexWrap="wrap">
                 <><Divider light /><Alert severity="success">Won: £{props.winnings}</Alert></>
                 </Stack>
             ):

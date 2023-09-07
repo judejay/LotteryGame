@@ -33,6 +33,7 @@ export class Lottery {
       let prizePool = -1;
       switch (result.length) {
       
+        
         case 3:
           prizePool = 50;
           break;
@@ -45,6 +46,10 @@ export class Lottery {
         case 6:
           prizePool = 500;
           break;
+          default :
+          prizePool = 0;
+
+
       }
 
       if (prizePool > 0) {
