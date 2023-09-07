@@ -50,7 +50,7 @@ export const Game: React.FC<GameProps> = (props: GameProps) => {
       <Grid item xs lg={3} sx={{ backgroundColor: 'grey.200' }} padding={2}>
         <Stack direction="row" marginY={2} justifyContent="space-between">    
           <Button color="info" variant="contained" onClick={resetGame} endIcon={<RestartAltIcon />}>LuckyDip</Button>
-          <Button color="success" variant="contained" onClick={handlePlayGame} endIcon={<PlayArrowIcon />}>Play</Button>
+          <Button color="success" variant="contained" disabled={props.played} onClick={handlePlayGame} endIcon={<PlayArrowIcon />}>Play</Button>
           <Button color="error" variant="contained" onClick={resetGame} endIcon={<RestartAltIcon />}>Reset</Button>
         </Stack>
         <TicketCard ticket={props.ticket} onTicketChange={handleLuckyDip}/>
