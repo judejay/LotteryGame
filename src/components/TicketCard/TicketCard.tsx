@@ -32,7 +32,7 @@ const [openDialog, setOpenDialog] = React.useState(false);
             title="Your numbers"
             action={
               
-          <Button color="secondary" variant="contained" onClick={handleClickOpen} endIcon={<EditIcon />}>Pick Numbers</Button>
+          <Button color="info" variant="contained" onClick={handleClickOpen} endIcon={<EditIcon />}>Pick Numbers</Button>
             }
             />
             <Divider />

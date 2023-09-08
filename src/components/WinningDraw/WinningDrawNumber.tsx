@@ -7,7 +7,7 @@ export interface WinningDrawNumberProps {
 }
 
 export const WinningDrawNumber: React.FC<WinningDrawNumberProps> = (props: WinningDrawNumberProps) => {
-  const backgroundColor = props.isWinner ? 'warning.light' : 'primary.main';
+  const backgroundColor = props.isWinner ? 'warning.light' : '#2E3B55';
 
   return (
         <Box sx={{ backgroundColor: backgroundColor, borderRadius: 999, width: 40, height: 40 }}>

@@ -12,7 +12,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }: PageLayoutPr
   return (
     <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <AppBar position="relative">
-        <Toolbar>
+        <Toolbar style={{ background: '#2E3B55' }}>
           <Stack direction="row" gap={2} alignItems="center">
             <LogoIcon />
             <Typography variant="h6" color="inherit" noWrap>
