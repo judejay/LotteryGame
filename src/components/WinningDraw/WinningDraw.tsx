@@ -4,6 +4,7 @@ import { LotteryDraw } from '../../LotteryDraw';
 import { WinningDrawNumber } from './WinningDrawNumber';
 import { Ticket } from '../../Ticket';
 import sortBy from 'lodash/sortBy';
+import { toCurrency } from '../../helper';
 
 export interface WinningDrawProps {
   
@@ -37,7 +38,7 @@ export const WinningDraw: React.FC<WinningDrawProps> = (props: WinningDrawProps)
             )}
             {props.played ? ( props.winnings ? (
                  <Stack sx={{ marginTop: '20px' }} alignItems="center" direction="column" gap={2} flexWrap="wrap">
-                <><Divider light /><Alert severity="success">Won: £{props.winnings}</Alert></>
+                <><Divider light /><Alert severity="success">Won: {toCurrency(props.winnings)}</Alert></>
                 </Stack>
             ):
 

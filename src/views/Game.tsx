@@ -1,9 +1,9 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { Button, Grid, Stack } from '@mui/material';
 import { Ticket } from '../Ticket';
-import { TicketCard } from '../components/TicketCard';
+import { TicketCard } from '../components/TicketCard/TicketCard';
 import { Lottery } from '../Lottery';
-import { WinningDraw } from '../components/WinningDraw';
+import { WinningDraw } from '../components/WinningDraw/WinningDraw';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
@@ -14,6 +14,7 @@ export interface GameProps {
     lottery: Lottery;
     reset: () => void;
     setTicket: Dispatch<SetStateAction<Ticket>>;
+    luckyDip: () => void;
 }
 
 export const Game: React.FC<GameProps> = (props: GameProps) => {
@@ -37,16 +38,20 @@ export const Game: React.FC<GameProps> = (props: GameProps) => {
   }
   
 
-  const handlePlayGame = ( ): any => {
+  const handlePlayGame = ( ) => {
     playGame(props.ticket);
   }
 
+
+  function LuckyDipGame() {
+    props.luckyDip() ;
+  }
 
   return (
     <Grid container direction="column">
       <Grid item xs lg={3} sx={{ backgroundColor: 'grey.200' }} padding={2}>
         <Stack direction="row" marginY={2} justifyContent="space-between">    
-          <Button color="info" variant="contained" onClick={resetGame} endIcon={<RestartAltIcon />}>LuckyDip</Button>
+          <Button color="info" variant="contained" onClick={LuckyDipGame} endIcon={<RestartAltIcon />}>LuckyDip</Button>
           <Button color="success" variant="contained" disabled={props.played} onClick={handlePlayGame} endIcon={<PlayArrowIcon />}>Play</Button>
           <Button color="error" variant="contained" onClick={resetGame} endIcon={<RestartAltIcon />}>Reset</Button>
         </Stack>

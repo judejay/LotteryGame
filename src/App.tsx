@@ -12,14 +12,18 @@ export const App: React.FC = () => {
 
 
   const resetGame = () => {
-    setTicket(Ticket.generateRandomTicket());
     setLottery(new Lottery());
     setPlayed(false);
   };
+  const luckyDip = () => {
+    setTicket(Ticket.generateRandomTicket());
+    setLottery(new Lottery());
+    setPlayed(false);
+  }
 
   return (   
       <PageLayout>
-        <Game ticket={ticket} setPlayed={setPlayed} played={played} lottery={lottery} reset={resetGame} setTicket={setTicket}/>
+        <Game ticket={ticket} setPlayed={setPlayed} played={played} lottery={lottery} luckyDip={luckyDip} reset={resetGame} setTicket={setTicket}/>
       </PageLayout>
   );
 };
