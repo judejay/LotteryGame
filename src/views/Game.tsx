@@ -6,6 +6,7 @@ import { Lottery } from '../Lottery';
 import { WinningDraw } from '../components/WinningDraw/WinningDraw';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import Casino from '@mui/icons-material/Casino'; 
 
 export interface GameProps {
     setPlayed: Dispatch<SetStateAction<boolean>>;
@@ -50,7 +51,7 @@ export const Game: React.FC<GameProps> = (props: GameProps) => {
     <Grid container direction="column">
       <Grid item xs lg={3} sx={{ backgroundColor: 'grey.200' }} padding={2}>
         <Stack direction="row" marginY={2} justifyContent="space-between">    
-          <Button color="secondary" variant="contained" onClick={LuckyDipGame} endIcon={<RestartAltIcon />}>LuckyDip</Button>
+          <Button color="secondary" variant="contained" onClick={LuckyDipGame} endIcon={<Casino />}>LuckyDip</Button>
           <Button color="success" variant="contained" disabled={props.played} onClick={handlePlayGame} endIcon={<PlayArrowIcon />}>Play</Button>
           <Button color="error" variant="contained" onClick={resetGame} endIcon={<RestartAltIcon />}>Reset</Button>
         </Stack>
